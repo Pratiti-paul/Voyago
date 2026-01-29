@@ -3,6 +3,8 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./db');
 const authRoutes = require('./routes/auth');
+const flightRoutes = require('./routes/flight.routes');
+const bookingRoutes = require('./routes/booking.routes');
 
 dotenv.config();
 
@@ -25,6 +27,8 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/flights', flightRoutes);
+app.use('/api/bookings', bookingRoutes);
 
 app.get('/', (req, res) => {
   res.send('API is running...');

@@ -1,0 +1,132 @@
+.flight-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid transparent;
+}
+
+.flight-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
+}
+
+.flight-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.airline-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 20%;
+}
+
+.airline-logo {
+    width: 40px;
+    height: 40px;
+    background: var(--bg-light-grey);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.airline-name {
+    display: block;
+    font-weight: bold;
+    color: var(--text-dark-grey);
+}
+
+.flight-number {
+    font-size: 0.8rem;
+    color: var(--text-muted-grey);
+}
+
+.flight-route {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    justify-content: center;
+}
+
+.route-point {
+    text-align: center;
+}
+
+.time {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-dark-grey);
+}
+
+.city {
+    font-size: 0.9rem;
+    color: var(--text-muted-grey);
+}
+
+.duration-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+}
+
+.duration {
+    font-size: 0.8rem;
+    color: var(--text-muted-grey);
+}
+
+.line {
+    width: 100%;
+    height: 2px;
+    background: #e0e0e0;
+    margin: 5px 0;
+    position: relative;
+}
+
+.line::after {
+    content: '✈';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+    color: var(--primary-color);
+    font-size: 12px;
+}
+
+.flight-price {
+    text-align: right;
+    width: 20%;
+}
+
+.price {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-dark-grey);
+    margin-bottom: 10px;
+}
+
+.book-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.book-btn:hover {
+    background: #e65100;
+}
