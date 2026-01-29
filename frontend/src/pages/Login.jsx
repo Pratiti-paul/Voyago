@@ -4,7 +4,7 @@ import { login } from '../api';
 import backgroundImage from '../assets/background.png';
 
 const Login = () => {
-    const [formData, setFormData] = useState({ username: '', password: '' });
+    const [formData, setFormData] = useState({ username: '', password: '', role: 'user' });
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -15,8 +15,19 @@ const Login = () => {
         e.preventDefault();
         try {
             const { data } = await login(formData);
+            
+            // Check if the role matches what was selected on login
+            if (data.user.role !== formData.role) {
+                alert(`This account does not have ${formData.role} privileges.`);
+                return;
+            }
+
             localStorage.setItem('user', JSON.stringify(data.user));
-            navigate('/home');
+            if (data.user.role === 'admin') {
+                navigate('/admin');
+            } else {
+                navigate('/home');
+            }
         } catch (error) {
             console.error(error);
             alert('Invalid credentials');
@@ -31,7 +42,8 @@ const Login = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'relative'
+        position: 'relative',
+        fontFamily: 'Georgia, serif'
     };
 
     const overlayStyle = {
@@ -62,7 +74,8 @@ const Login = () => {
         borderRadius: '8px',
         border: '1px solid #ddd',
         backgroundColor: 'var(--bg-light-grey)',
-        fontSize: '16px'
+        fontSize: '16px',
+        fontFamily: 'inherit'
     };
 
     const buttonStyle = {
@@ -70,20 +83,31 @@ const Login = () => {
         padding: '12px',
         borderRadius: '8px',
         border: 'none',
-        backgroundColor: 'var(--primary-color)',
+        backgroundColor: formData.role === 'admin' ? 'var(--secondary-color)' : 'var(--primary-color)',
         color: 'white',
         fontSize: '16px',
         fontWeight: 'bold',
         marginTop: '20px',
-        transition: 'background-color 0.3s'
+        transition: 'all 0.3s ease'
     };
 
     return (
         <div style={containerStyle}>
             <div style={overlayStyle}></div>
             <div style={formContainerStyle}>
-                <h2 style={{ color: 'var(--primary-color)', marginBottom: '20px' }}>Welcome Back</h2>
+                <h2 style={{ color: formData.role === 'admin' ? 'var(--secondary-color)' : 'var(--primary-color)', marginBottom: '20px' }}>
+                    {formData.role === 'admin' ? 'Admin Portal' : 'User Login'}
+                </h2>
                 <form onSubmit={handleSubmit}>
+                    <select 
+                        name="role" 
+                        onChange={handleChange} 
+                        style={{...inputStyle, marginBottom: '20px', border: `2px solid ${formData.role === 'admin' ? 'var(--secondary-color)' : 'var(--primary-color)'}`}}
+                        value={formData.role}
+                    >
+                        <option value="user">Login as User</option>
+                        <option value="admin">Login as Admin</option>
+                    </select>
                     <input
                         type="text"
                         name="username"

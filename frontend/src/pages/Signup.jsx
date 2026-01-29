@@ -4,7 +4,7 @@ import { signup } from '../api';
 import backgroundImage from '../assets/background.png';
 
 const Signup = () => {
-    const [formData, setFormData] = useState({ username: '', email: '', password: '' });
+    const [formData, setFormData] = useState({ username: '', email: '', password: '', role: 'user' });
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -19,7 +19,8 @@ const Signup = () => {
             navigate('/');
         } catch (error) {
             console.error(error);
-            alert('Error signing up');
+            const message = error.response?.data?.error || 'Error signing up';
+            alert(message);
         }
     };
 
@@ -62,7 +63,8 @@ const Signup = () => {
         borderRadius: '8px',
         border: '1px solid #ddd',
         backgroundColor: 'var(--bg-light-grey)',
-        fontSize: '16px'
+        fontSize: '16px',
+        fontFamily: 'inherit'
     };
 
     const buttonStyle = {
@@ -108,6 +110,15 @@ const Signup = () => {
                         required
                         style={inputStyle}
                     />
+                    <select 
+                        name="role" 
+                        onChange={handleChange} 
+                        style={inputStyle}
+                        value={formData.role}
+                    >
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
                     <button type="submit" style={buttonStyle}>Sign Up</button>
                     <p style={{ marginTop: '15px', color: 'var(--text-muted-grey)' }}>
                         Already have an account? <span style={{ color: 'var(--primary-color)', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => navigate('/')}>Login</span>
