@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signup } from '../api';
-import backgroundImage from '../assets/background.png';
+import { signup } from '../../api';
+import backgroundImage from '../../assets/background.png';
+import './Signup.css';
 
 const Signup = () => {
     const [formData, setFormData] = useState({ username: '', email: '', password: '', role: 'user' });
@@ -25,65 +26,13 @@ const Signup = () => {
     };
 
     const containerStyle = {
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'relative'
-    };
-
-    const overlayStyle = {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundColor: 'rgba(255, 255, 255, 0.3)',
-        backdropFilter: 'blur(8px)',
-    };
-
-    const formContainerStyle = {
-        position: 'relative',
-        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-        padding: '3rem',
-        borderRadius: '15px',
-        boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
-        width: '400px',
-        textAlign: 'center',
-        zIndex: 1
-    };
-
-    const inputStyle = {
-        width: '100%',
-        padding: '12px',
-        margin: '10px 0',
-        borderRadius: '8px',
-        border: '1px solid #ddd',
-        backgroundColor: 'var(--bg-light-grey)',
-        fontSize: '16px',
-        fontFamily: 'inherit'
-    };
-
-    const buttonStyle = {
-        width: '100%',
-        padding: '12px',
-        borderRadius: '8px',
-        border: 'none',
-        backgroundColor: 'var(--secondary-color)',
-        color: 'white',
-        fontSize: '16px',
-        fontWeight: 'bold',
-        marginTop: '20px',
-        transition: 'background-color 0.3s'
+        backgroundImage: `url(${backgroundImage})`
     };
 
     return (
-        <div style={containerStyle}>
-            <div style={overlayStyle}></div>
-            <div style={formContainerStyle}>
+        <div className="signup-container" style={containerStyle}>
+            <div className="signup-overlay"></div>
+            <div className="signup-form-card">
                 <h2 style={{ color: 'var(--secondary-color)', marginBottom: '20px' }}>Join Us</h2>
                 <form onSubmit={handleSubmit}>
                     <input
@@ -92,7 +41,7 @@ const Signup = () => {
                         placeholder="Username"
                         onChange={handleChange}
                         required
-                        style={inputStyle}
+                        className="signup-input"
                     />
                     <input
                         type="email"
@@ -100,7 +49,7 @@ const Signup = () => {
                         placeholder="Email"
                         onChange={handleChange}
                         required
-                        style={inputStyle}
+                        className="signup-input"
                     />
                     <input
                         type="password"
@@ -108,20 +57,20 @@ const Signup = () => {
                         placeholder="Password"
                         onChange={handleChange}
                         required
-                        style={inputStyle}
+                        className="signup-input"
                     />
                     <select 
                         name="role" 
                         onChange={handleChange} 
-                        style={inputStyle}
+                        className="signup-input"
                         value={formData.role}
                     >
                         <option value="user">User</option>
                         <option value="admin">Admin</option>
                     </select>
-                    <button type="submit" style={buttonStyle}>Sign Up</button>
+                    <button type="submit" className="signup-button">Sign Up</button>
                     <p style={{ marginTop: '15px', color: 'var(--text-muted-grey)' }}>
-                        Already have an account? <span style={{ color: 'var(--primary-color)', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => navigate('/')}>Login</span>
+                        Already have an account? <span className="login-link" onClick={() => navigate('/')}>Login</span>
                     </p>
                 </form>
             </div>
