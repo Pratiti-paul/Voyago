@@ -9,17 +9,21 @@ import Trains from './pages/Trains/Trains';
 import Hotels from './pages/Hotels/Hotels';
 import PlanTrip from './pages/PlanTrip/PlanTrip';
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 import { useLocation } from 'react-router-dom';
 
 function Layout({ children }) {
   const location = useLocation();
-  const hideNavbar = ['/', '/signup'].includes(location.pathname);
+  const hideLayout = ['/', '/signup'].includes(location.pathname);
   
   return (
-    <>
-      {!hideNavbar && <Navbar />}
-      {children}
-    </>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      {!hideLayout && <Navbar />}
+      <div style={{ flex: 1 }}>
+        {children}
+      </div>
+      {!hideLayout && <Footer />}
+    </div>
   );
 }
 
