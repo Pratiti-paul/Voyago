@@ -1,0 +1,65 @@
+.deals-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    scrollbar-width: thin;
+}
+
+.deals-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.deals-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.deals-scroll::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 10px;
+}
+
+.deal-card {
+    min-width: 280px;
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: relative;
+    border-left: 4px solid #ff6d38;
+}
+
+.deal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #fff0e8;
+    color: #ff6d38;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.deal-card h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.deal-card p {
+    margin: 0 0 15px;
+    font-size: 14px;
+    color: #777;
+}
+
+.promo-code {
+    font-family: monospace;
+    background: #f4f7fa;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #333;
+    border: 1px dashed #ccc;
+    display: inline-block;
+}

@@ -1,0 +1,68 @@
+.trip-snapshot {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.trip-card-mini {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-right: 4px solid #4CAF50;
+}
+
+.trip-date {
+    background: #f0f4f8;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.trip-date .day {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+.trip-date .month {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #777;
+}
+
+.trip-info {
+    flex: 1;
+}
+
+.trip-info h4 {
+    margin: 0 0 4px;
+    font-size: 16px;
+}
+
+.status.confirmed {
+    font-size: 12px;
+    color: #4CAF50;
+    font-weight: 700;
+}
+
+.view-btn {
+    background: none;
+    border: 1px solid #ff6d38;
+    color: #ff6d38;
+    padding: 6px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.view-btn:hover {
+    background: #ff6d38;
+    color: white;
+}

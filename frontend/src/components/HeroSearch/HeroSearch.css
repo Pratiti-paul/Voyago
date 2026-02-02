@@ -1,0 +1,279 @@
+.hero-search-section {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ensure it doesn't overflow if the image is huge */
+    overflow: hidden;
+}
+
+.hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-bg-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overlay for better text readability if needed, but the glass box handles it mostly */
+.hero-overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.1));
+}
+
+.search-widget-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 850px;
+    padding: 0 20px;
+}
+
+/* Glassy Tabs */
+.glass-tabs {
+    display: inline-flex;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px 12px 0 0;
+    padding: 8px 8px 0;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.02);
+}
+
+.glass-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+    transition: all 0.2s ease;
+}
+
+.glass-tab.active {
+    background: #fff;
+    color: #000;
+    /* Stronger black for active */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.03);
+    position: relative;
+    /* To clip the bottom border of the container later if needed, mostly handled by bg color match */
+}
+
+.glass-tab:hover {
+    color: #000;
+}
+
+/* Glass Main Box */
+.glass-search-box {
+    background: rgba(255, 255, 255, 0.92);
+    /* Highly opaque white for clear content */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 0 20px 20px 20px;
+    /* Top left is sharp for tab connection? Actually standard radius usually looks fine, let's try matching tabs */
+    border-top-left-radius: 0;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    /* Soft large shadow */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Rows */
+.row-locations {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.location-group {
+    flex: 1;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #666;
+    margin-left: 4px;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    /* Or very light grey */
+    background: #f4f6f9;
+    border: 1px solid #e0e4eb;
+    border-radius: 12px;
+    padding: 12px 16px;
+    transition: border-color 0.2s;
+}
+
+.input-wrapper:hover {
+    border-color: #cbd2dc;
+}
+
+.input-icon {
+    color: #3b82f6;
+    /* Blue icon */
+    margin-right: 12px;
+}
+
+.input-wrapper input {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+    width: 100%;
+    outline: none;
+}
+
+.swap-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 24px;
+    /* Align with input boxes */
+}
+
+.swap-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f4f6f9;
+    border: 1px solid #e0e4eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.swap-btn:hover {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transform: rotate(180deg);
+}
+
+.row-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nice-date-group {
+    flex: 1;
+}
+
+.input-wrapper-simple {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #e0e4eb;
+    border-radius: 10px;
+    padding: 12px 16px;
+    height: 52px;
+    /* Fixed height to match button */
+    box-sizing: border-box;
+}
+
+.label-text {
+    font-size: 15px;
+    color: #666;
+    font-weight: 500;
+}
+
+.value-text {
+    font-size: 15px;
+    color: #111;
+    font-weight: 600;
+}
+
+/* Main Search Button */
+.main-search-btn {
+    flex: 1.5;
+    background: #1a73e8;
+    /* Classic travel blue */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    height: 52px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+    transition: background-color 0.2s;
+}
+
+.main-search-btn:hover {
+    background: #1557b0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .glass-search-box {
+        border-radius: 0 0 20px 20px;
+        padding: 20px;
+    }
+
+    .glass-tabs {
+        width: 100%;
+        border-radius: 12px 12px 0 0;
+        justify-content: space-between;
+        box-sizing: border-box;
+    }
+
+    .glass-tab {
+        flex: 1;
+        justify-content: center;
+        padding: 12px 10px;
+    }
+
+    .glass-tab span {
+        display: none;
+        /* Icon only on mobile maybe? */
+    }
+
+    .row-locations,
+    .row-details {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .swap-button-container {
+        padding-top: 0;
+        position: absolute;
+        top: 25%;
+        right: 15px;
+        z-index: 20;
+    }
+}
