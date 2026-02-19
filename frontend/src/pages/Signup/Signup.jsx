@@ -59,15 +59,22 @@ const Signup = () => {
                         required
                         className="signup-input"
                     />
-                    <select 
-                        name="role" 
-                        onChange={handleChange} 
-                        className="signup-input"
-                        value={formData.role}
-                    >
-                        <option value="user">User</option>
-                        <option value="admin">Admin</option>
-                    </select>
+                    <div className="role-toggle-container">
+                        <button 
+                            type="button" 
+                            className={`role-toggle-btn ${formData.role === 'user' ? 'active' : ''}`}
+                            onClick={() => setFormData({ ...formData, role: 'user' })}
+                        >
+                            User
+                        </button>
+                        <button 
+                            type="button" 
+                            className={`role-toggle-btn ${formData.role === 'admin' ? 'active' : ''}`}
+                            onClick={() => setFormData({ ...formData, role: 'admin' })}
+                        >
+                            Admin
+                        </button>
+                    </div>
                     <button type="submit" className="signup-button">Sign Up</button>
                     <p style={{ marginTop: '15px', color: 'var(--text-muted-grey)' }}>
                         Already have an account? <span className="login-link" onClick={() => navigate('/')}>Login</span>

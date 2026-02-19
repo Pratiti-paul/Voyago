@@ -46,15 +46,22 @@ const Login = () => {
                     {formData.role === 'admin' ? 'Admin Portal' : 'User Login'}
                 </h2>
                 <form onSubmit={handleSubmit}>
-                    <select 
-                        name="role" 
-                        onChange={handleChange} 
-                        className={`role-select ${formData.role}`}
-                        value={formData.role}
-                    >
-                        <option value="user">Login as User</option>
-                        <option value="admin">Login as Admin</option>
-                    </select>
+                <div className="role-toggle-container">
+                        <button 
+                            type="button" 
+                            className={`role-toggle-btn ${formData.role === 'user' ? 'active' : ''}`}
+                            onClick={() => setFormData({ ...formData, role: 'user' })}
+                        >
+                            User
+                        </button>
+                        <button 
+                            type="button" 
+                            className={`role-toggle-btn ${formData.role === 'admin' ? 'active' : ''}`}
+                            onClick={() => setFormData({ ...formData, role: 'admin' })}
+                        >
+                            Admin
+                        </button>
+                    </div>
                     <input
                         type="text"
                         name="username"

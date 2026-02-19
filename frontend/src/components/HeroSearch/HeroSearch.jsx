@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Plane, Hotel, TrainFront, Package, ArrowRightLeft, Calendar, User, Search, MapPin } from 'lucide-react';
 import './HeroSearch.css';
-import homeBg from '../../assets/home-bg.png';
 
 const HeroSearch = () => {
     const [activeTab, setActiveTab] = useState('flights');
@@ -16,11 +15,6 @@ const HeroSearch = () => {
 
     return (
         <div className="hero-search-section">
-            <div className="hero-bg-image">
-                <img src={homeBg} alt="Background" />
-                <div className="hero-overlay-gradient"></div>
-            </div>
-
             <div className="search-widget-container">
                 {/* Tabs */}
                 <div className="glass-tabs">

@@ -1,5 +1,5 @@
 import React from 'react';
-import FlightCard from './FlightCard';
+import FlightCard from '../FlightCard/FlightCard';
 import './FlightList.css';
 
 const FlightList = ({ flights, onBook }) => {

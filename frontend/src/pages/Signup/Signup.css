@@ -64,3 +64,38 @@
     cursor: pointer;
     font-weight: bold;
 }
+
+.role-toggle-container {
+    display: flex;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 5px;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.role-toggle-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+    color: #666;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.role-toggle-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.role-toggle-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.role-toggle-btn.active:nth-child(2) {
+    background-color: var(--secondary-color);
+}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import FlightSearchBar from '../../components/Flights/FlightSearchBar';
-import FlightList from '../../components/Flights/FlightList';
-import BookingModal from '../../components/Flights/BookingModal';
+import FlightSearchBar from '../../components/FlightSearchBar/FlightSearchBar';
+import FlightList from '../../components/FlightList/FlightList';
+import BookingModal from '../../components/BookingModal/BookingModal';
 import { searchFlights } from '../../api/flight';
 import './Flights.css';
 
