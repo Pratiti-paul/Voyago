@@ -34,7 +34,7 @@ const FeatureHighlights = () => {
                     return (
                         <div key={index} className="feature-card">
                             <div className="feature-icon-wrapper">
-                                <Icon size={28} className="feature-icon" />
+                                <Icon size={28} />
                             </div>
                             <div className="feature-content">
                                 <h3>{feature.title}</h3>
