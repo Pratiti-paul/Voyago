@@ -19,8 +19,12 @@
     border-radius: 20px;
     padding: 30px 24px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    /* Make text and icon sit next to each other horizontally */
+    align-items: center;
+    /* Vertically center icon and text */
+    gap: 20px;
+    /* Space between the icon and text block */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     border: 1px solid rgba(0, 0, 0, 0.03);
@@ -34,6 +38,8 @@
 }
 
 .feature-icon-wrapper {
+    flex-shrink: 0;
+    /* Prevent the icon box from shrinking */
     width: 60px;
     height: 60px;
     border-radius: 16px;
@@ -42,7 +48,6 @@
     align-items: center;
     background: #fff0e6;
     color: #ff6d38;
-    margin-bottom: 24px;
     transition: all 0.3s ease;
 }
 
