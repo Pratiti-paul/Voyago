@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import HeroSearch from '../../components/HeroSearch/HeroSearch';
 import FeatureHighlights from '../../components/Features/FeatureHighlights';
 import PopularDestinations from '../../components/Destinations/PopularDestinations';
-import DealsOffers from '../../components/Deals/DealsOffers';
+// import DealsOffers from '../../components/Deals/DealsOffers';
 import RecentlyViewed from '../../components/RecentViewed/RecentlyViewed';
 import MyTrips from '../../components/MyTrips/MyTrips';
 import TrustReviews from '../../components/TrustSection/TrustReviews';
@@ -28,28 +28,17 @@ const Home = () => {
 
     return (
         <div className="home-page">
-            {/* 1. Main Search Section (Hero Area) */}
             <HeroSearch />
-
-            {/* 2. Quick Feature Highlights */}
             <FeatureHighlights />
 
             <div className="main-content-wrapper">
-                {/* 3. Popular Destinations */}
                 <PopularDestinations />
 
-                {/* 4. Deals & Offers */}
-                <DealsOffers />
-
                 <div className="dual-section-grid">
-                    {/* 5. Recently Viewed */}
                     <RecentlyViewed />
-                    
-                    {/* 6. My Trips Snapshot */}
                     <MyTrips />
                 </div>
 
-                {/* 7. Reviews / Trust */}
                 <TrustReviews />
             </div>
         </div>

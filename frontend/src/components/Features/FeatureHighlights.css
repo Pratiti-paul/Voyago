@@ -1,27 +1,85 @@
 .features-section {
+    width: 100%;
+    max-width: 1300px;
+    margin: 60px auto 70px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 10;
+    position: relative;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.feature-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    cursor: default;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(255, 109, 56, 0.1);
+    border-color: rgba(255, 109, 56, 0.2);
+}
+
+.feature-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-bottom: 50px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-.feature-item {
-    display: flex;
     align-items: center;
-    gap: 10px;
-    background: white;
-    padding: 10px 20px;
-    border-radius: 50px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    font-size: 14px;
-    font-weight: 600;
-    color: #333;
+    background: #fff0e6;
+    color: #ff6d38;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
 }
 
-.feature-icon {
-    color: #ff6d38;
-    display: flex;
+.feature-card:hover .feature-icon-wrapper {
+    background: #ff6d38;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.feature-content h3 {
+    margin: 0 0 12px 0;
+    font-size: 19px;
+    font-weight: 700;
+    color: #222;
+}
+
+.feature-content p {
+    margin: 0;
+    font-size: 14.5px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-section {
+        margin: 40px auto 50px auto;
+    }
 }
