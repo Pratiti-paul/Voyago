@@ -13,6 +13,44 @@ const HeroSearch = () => {
         setToCity(temp);
     };
 
+    const handleSearch = () => {
+        const newSearch = {
+            id: Date.now(),
+            type: activeTab,
+            from: fromCity,
+            to: toCity,
+            date: new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'short' }),
+        };
+
+        const existingSearches = JSON.parse(localStorage.getItem('recentSearches') || '[]');
+        
+        // Check if an identical search already exists
+        const duplicateIndex = existingSearches.findIndex(s => 
+            s.type === activeTab && 
+            s.from === fromCity && 
+            s.to === toCity
+        );
+
+        let updatedSearches;
+        if (duplicateIndex !== -1) {
+            // Remove the duplicate
+            existingSearches.splice(duplicateIndex, 1);
+            // Add the new one at the beginning
+            updatedSearches = [newSearch, ...existingSearches].slice(0, 10);
+        } else {
+            // Just add at the beginning
+            updatedSearches = [newSearch, ...existingSearches].slice(0, 10);
+        }
+        
+        localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
+        
+        // Dispatch event so other components know
+        window.dispatchEvent(new Event('storage'));
+        
+        // TODO: navigate to search results
+        // navigate(`/search?from=${fromCity}&to=${toCity}`);
+    };
+
     return (
         <div className="hero-search-section">
             <div className="search-widget-container">
@@ -97,7 +135,7 @@ const HeroSearch = () => {
                             </div>
                         </div>
 
-                        <button className="main-search-btn">
+                        <button className="main-search-btn" onClick={handleSearch}>
                             Search
                         </button>
                     </div>

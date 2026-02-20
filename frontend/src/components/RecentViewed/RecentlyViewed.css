@@ -1,36 +1,74 @@
-.recent-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.recent-viewed-section {
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
 }
 
-.recent-card {
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.recent-list-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 10px 0 25px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+}
+
+.recent-list-container::-webkit-scrollbar {
+    display: none;
+}
+
+.recent-list-horizontal {
+    display: flex;
+    gap: 20px;
+    overflow-x: visible;
+}
+
+.recent-card-horizontal {
     display: flex;
     align-items: center;
     gap: 15px;
     background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 18px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    min-width: 280px;
+    border-top: 4px solid #ff6d38;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.recent-card-horizontal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .recent-icon {
     width: 40px;
     height: 40px;
-    background: #f0f4f8;
+    background: #fff0e6;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #ff6d38;
+    flex-shrink: 0;
 }
 
 .recent-details h4 {
     margin: 0 0 4px;
-    font-size: 16px;
+    font-size: 15px;
     display: flex;
     align-items: center;
     gap: 8px;
+    color: #333;
 }
 
 .recent-details p {

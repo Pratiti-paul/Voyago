@@ -5,7 +5,7 @@ import FeatureHighlights from '../../components/Features/FeatureHighlights';
 import PopularDestinations from '../../components/Destinations/PopularDestinations';
 // import DealsOffers from '../../components/Deals/DealsOffers';
 import RecentlyViewed from '../../components/RecentViewed/RecentlyViewed';
-import MyTrips from '../../components/MyTrips/MyTrips';
+// import MyTrips from '../../components/MyTrips/MyTrips';
 import TrustReviews from '../../components/TrustSection/TrustReviews';
 import './Home.css';
 
@@ -34,9 +34,11 @@ const Home = () => {
             <div className="main-content-wrapper">
                 <PopularDestinations />
 
+                <RecentlyViewed />
+
                 <div className="dual-section-grid">
-                    <RecentlyViewed />
-                    <MyTrips />
+                    {/* <RecentlyViewed /> */}
+                    {/* <MyTrips /> */}
                 </div>
 
                 <TrustReviews />
