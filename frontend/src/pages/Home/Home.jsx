@@ -7,6 +7,7 @@ import PopularDestinations from '../../components/Destinations/PopularDestinatio
 import RecentlyViewed from '../../components/RecentViewed/RecentlyViewed';
 // import MyTrips from '../../components/MyTrips/MyTrips';
 import TrustReviews from '../../components/TrustSection/TrustReviews';
+import HandpickedCollections from '../../components/Collections/HandpickedCollections';
 import './Home.css';
 
 const Home = () => {
@@ -40,6 +41,8 @@ const Home = () => {
                     {/* <RecentlyViewed /> */}
                     {/* <MyTrips /> */}
                 </div>
+
+                <HandpickedCollections />
 
                 <TrustReviews />
             </div>
