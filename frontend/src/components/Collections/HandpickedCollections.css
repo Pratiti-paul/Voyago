@@ -89,6 +89,7 @@
     overflow: hidden;
     z-index: 2;
     background: #f3f4f6;
+    border-top: 4px solid var(--primary-color, #FF7847);
 }
 
 .card-image {
