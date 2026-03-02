@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plane, Hotel, TrainFront, Package, ArrowRightLeft, Calendar, MapPin } from 'lucide-react';
+import { Plane, Hotel, TrainFront, ArrowRightLeft, Calendar, MapPin } from 'lucide-react';
 import './HeroSearch.css';
 
 const HeroSearch = () => {
@@ -66,25 +66,11 @@ const HeroSearch = () => {
                 guests: '2 Adults, 1 Room',
             });
             navigate(`/hotels?${hotelParams.toString()}`);
-        } else {
-            navigate('/plan');
         }
     };
 
     const handleTabChange = (tab) => {
         setActiveTab(tab);
-
-        const routeMap = {
-            flights: '/flights',
-            hotels: '/hotels',
-            trains: '/trains',
-            packages: '/plan',
-        };
-
-        const targetRoute = routeMap[tab];
-        if (targetRoute) {
-            navigate(targetRoute);
-        }
     };
 
     return (
@@ -112,13 +98,6 @@ const HeroSearch = () => {
                     >
                         <TrainFront size={18} />
                         <span>Trains</span>
-                    </button>
-                    <button 
-                        className={`glass-tab ${activeTab === 'packages' ? 'active' : ''}`}
-                        onClick={() => handleTabChange('packages')}
-                    >
-                        <Package size={18} />
-                        <span>Packages</span>
                     </button>
                 </div>
 
