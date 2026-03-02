@@ -11,8 +11,8 @@ const Footer = () => {
                         <span className="footer-brand">VOYAGO</span>
                     </div>
                     <p className="footer-description">
-                        Urna ratione ante harum provident, eleifend, vulputate molestiae proin fringilla, 
-                        praesentium magna conubia at perferendis, pretium, aenean aut ultrices.
+                        Voyago is your trusted travel partner for flights, hotels, trains, and curated holiday packages.
+We make travel planning simple, affordable, and seamless.
                     </p>
                 </div>
 
@@ -20,15 +20,15 @@ const Footer = () => {
                     <h4 className="footer-title">Contact Us</h4>
                     <div className="footer-contact-item">
                         <span>📞</span>
-                        <span>+01 (123) 4567 90</span>
+                        <span>+91 62903 70398</span>
                     </div>
                     <div className="footer-contact-item">
                         <span>✉️</span>
-                        <span>info.voyago.com</span>
+                        <span>support@voyago.com</span>
                     </div>
                     <div className="footer-contact-item">
                         <span>📍</span>
-                        <span>3146 Koontz, California</span>
+                        <span>Mumbai, India</span>
                     </div>
                 </div>
 

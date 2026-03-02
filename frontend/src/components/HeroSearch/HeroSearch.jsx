@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Plane, Hotel, TrainFront, Package, ArrowRightLeft, Calendar, User, Search, MapPin } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Plane, Hotel, TrainFront, Package, ArrowRightLeft, Calendar, MapPin } from 'lucide-react';
 import './HeroSearch.css';
 
 const HeroSearch = () => {
+    const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('flights');
     const [fromCity, setFromCity] = useState('New York, NYC');
     const [toCity, setToCity] = useState('Paris, CDG');
@@ -46,9 +48,43 @@ const HeroSearch = () => {
         
         // Dispatch event so other components know
         window.dispatchEvent(new Event('storage'));
-        
-        // TODO: navigate to search results
-        // navigate(`/search?from=${fromCity}&to=${toCity}`);
+
+        const params = new URLSearchParams({
+            from: fromCity,
+            to: toCity,
+            date: '24 Apr - 30 Apr',
+        });
+
+        if (activeTab === 'flights') {
+            navigate(`/flights?${params.toString()}`);
+        } else if (activeTab === 'trains') {
+            navigate(`/trains?${params.toString()}`);
+        } else if (activeTab === 'hotels') {
+            const hotelParams = new URLSearchParams({
+                city: toCity,
+                dates: '24 Apr - 30 Apr',
+                guests: '2 Adults, 1 Room',
+            });
+            navigate(`/hotels?${hotelParams.toString()}`);
+        } else {
+            navigate('/plan');
+        }
+    };
+
+    const handleTabChange = (tab) => {
+        setActiveTab(tab);
+
+        const routeMap = {
+            flights: '/flights',
+            hotels: '/hotels',
+            trains: '/trains',
+            packages: '/plan',
+        };
+
+        const targetRoute = routeMap[tab];
+        if (targetRoute) {
+            navigate(targetRoute);
+        }
     };
 
     return (
@@ -58,28 +94,28 @@ const HeroSearch = () => {
                 <div className="glass-tabs">
                     <button 
                         className={`glass-tab ${activeTab === 'flights' ? 'active' : ''}`}
-                        onClick={() => setActiveTab('flights')}
+                        onClick={() => handleTabChange('flights')}
                     >
                         <Plane size={18} />
                         <span>Flights</span>
                     </button>
                     <button 
                         className={`glass-tab ${activeTab === 'hotels' ? 'active' : ''}`}
-                        onClick={() => setActiveTab('hotels')}
+                        onClick={() => handleTabChange('hotels')}
                     >
                         <Hotel size={18} />
                         <span>Hotels</span>
                     </button>
                     <button 
                         className={`glass-tab ${activeTab === 'trains' ? 'active' : ''}`}
-                        onClick={() => setActiveTab('trains')}
+                        onClick={() => handleTabChange('trains')}
                     >
                         <TrainFront size={18} />
                         <span>Trains</span>
                     </button>
                     <button 
                         className={`glass-tab ${activeTab === 'packages' ? 'active' : ''}`}
-                        onClick={() => setActiveTab('packages')}
+                        onClick={() => handleTabChange('packages')}
                     >
                         <Package size={18} />
                         <span>Packages</span>
