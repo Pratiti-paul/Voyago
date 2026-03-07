@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const connectDB = require('./db');
 const authRoutes = require('./routes/auth');
 const flightRoutes = require('./routes/flight.routes');
+const trainRoutes = require('./routes/train.routes');
 const bookingRoutes = require('./routes/booking.routes');
 
 dotenv.config();
@@ -28,6 +29,7 @@ app.use((req, res, next) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/flights', flightRoutes);
+app.use('/api/trains', trainRoutes);
 app.use('/api/bookings', bookingRoutes);
 
 app.get('/', (req, res) => {
